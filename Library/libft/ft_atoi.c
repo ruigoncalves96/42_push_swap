@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:23:26 by randrade          #+#    #+#             */
-/*   Updated: 2024/10/15 16:40:56 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/09 19:25:57 by ruigoncalve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-	int	value;
+	long	value;
 	int	i;
 	int	pos_neg;
 
@@ -28,25 +28,13 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			pos_neg *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		value = (value * 10) + str[i] - 48;
-		i++;
-	}
-	return (value * pos_neg);
+		value = (value * 10) + str[i++] - 48;
+	value *= pos_neg;
+	if (value < -2147483648 || value > 2147483647)
+		value = 0;
+	return (value);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	char	*str = ""; 
-
-	printf("%d\n", atoi("+42lyon"));
-	printf("%d\n", ft_atoi("+42lyon"));
-}*/
