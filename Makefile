@@ -13,7 +13,8 @@ SRC_PATH = src
 OBJ_PATH = $(SRC_PATH)/obj
 
 SRC = push_swap.c \
-      parsing.c
+      parsing.c \
+      error_handling.c
 
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))
 

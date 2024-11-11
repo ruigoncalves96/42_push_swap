@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_first.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:21:44 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/09 17:53:30 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/11 12:37:39 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_firs(t_list **lst, t_list *new)
+void	ft_lstadd_first(t_list **lst, t_list *new)
 {
-	t_list	*first;
-
-	first = *lst;
 	if (lst && new)
 	{
-		new->next = first;
-		first->previous = new;
-		first = new;
+		new->next = *lst;
+		(*lst)->previous = new;
+		*lst = new;
 	}
 }
 

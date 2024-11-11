@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 13:30:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/11 17:45:12 by randrade         ###   ########.fr       */
+/*   Created: 2024/11/11 16:27:16 by randrade          #+#    #+#             */
+/*   Updated: 2024/11/11 17:50:44 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-static void	ft_print_stack(t_list *stack)
+void	ft_error_exit(void)
 {
-	t_list	*i;
-
-	i = stack;
-	while (i)
-	{
-		ft_printf("%d\n", i->nbr);
-		i = i->next;
-	}
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
 
-int	main(int argc, char *argv[])
+void	ft_error_free_exit(t_list **lst)
 {
-	t_list	*stack_a;
-
-	if (argc < 2)
-		return (1);
-	stack_a = NULL;
-	ft_convert_and_parse(argv + 1, &stack_a);
-	ft_print_stack(stack_a);
-	ft_lstclear(&stack_a);
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	ft_lstclear(lst);
+	exit(1);
 }
