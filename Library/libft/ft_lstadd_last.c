@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_last.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:08:58 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/09 17:53:27 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/12 13:49:57 by ruigoncalve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstadd_last(t_list **lst, t_list *new)
 {
 	t_list	*last;
-
+	
 	if (lst == NULL)
 		return ;
 	if (*lst)
@@ -25,7 +25,11 @@ void	ft_lstadd_last(t_list **lst, t_list *new)
 		new->previous = last;
 	}
 	else
+	{
 		*lst = new;
+		new->previous = NULL;
+	}
+	new->next = NULL;
 }
 
 /*
