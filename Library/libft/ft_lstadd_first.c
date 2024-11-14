@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:21:44 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/12 13:04:46 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/13 11:55:15 by ruigoncalve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ void	ft_lstadd_first(t_list **lst, t_list *new)
 	if (lst && new)
 	{
 		new->previous = NULL;
-		new->next = *lst;
 		if (*lst)
+		{
+			new->next = *lst;
 			(*lst)->previous = new;
+		}
+		else
+			new->next = NULL;
 		*lst = new;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:52:42 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/12 14:15:47 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:13:09 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 static void	ft_s(t_list **stack)
 {
+	t_list	*first;
+
+	first = NULL;
 	if (!*stack || !(*stack)->next)
 		return ;
-	*stack = (*stack)->next;
-	(*stack)->previous->previous = *stack;
-	if ((*stack)->previous->next)
-		(*stack)->previous->next = (*stack)->next;
-	(*stack)->next = (*stack)->previous;
-	(*stack)->previous = NULL;
+	first = (*stack)->next;
+	(*stack)->previous = first;
+	(*stack)->next = first->next;
+	if ((*stack)->next)
+		(*stack)->next->previous = *stack;
+	first->previous = NULL;
+	first->next = *stack;
+	*stack = first;
 }
 
 void	ft_swap(t_list **stack_a, t_list **stack_b, int move)

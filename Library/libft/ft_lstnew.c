@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:24:53 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/09 18:35:42 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/13 11:57:33 by ruigoncalve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(int content)
 {
 	t_list	*lst;
 
-	lst = (t_list *) malloc(sizeof(*lst));
+	lst = (t_list *) calloc(1, sizeof(t_list));
 	if (lst == NULL)
 		return (NULL);
 	lst->nbr = content;

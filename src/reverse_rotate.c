@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:54:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/12 14:13:41 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:13:50 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 static void	ft_rr(t_list **stack)
 {
-	t_list	*temp;
+	t_list	*last;
+	t_list	*second_last;
 
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	temp = ft_lstlast(*stack);
-	temp = temp->previous;
-	ft_lstadd_first(stack, ft_lstlast(*stack));
-	temp->next = NULL;
+	last = ft_lstlast(*stack);
+	second_last = last->previous;
+	ft_lstadd_first(stack, last);
+	second_last->next = NULL;
 }
 
 void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, int move)
