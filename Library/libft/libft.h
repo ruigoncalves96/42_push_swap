@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:34:25 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/09 19:26:00 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/22 15:48:39 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
 	int		nbr;
+	unsigned int	index;
+	unsigned int	move_cost;
+	bool		before_meridian;
+	struct s_list	*target;
 	struct s_list	*previous;
 	struct s_list	*next;
 }				t_list;

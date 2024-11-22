@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:57 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/14 17:56:27 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:08:16 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,6 @@
 # define RRA 9
 # define RRB 10
 # define RRR 11
-
-typedef struct s_list_info
-{
-	int	min_nbr;
-	int	position;
-	int	size;
-}		t_list_info;
 
 void	ft_print_stack(t_list *stack);
 
