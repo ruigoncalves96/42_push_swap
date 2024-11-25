@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:14:31 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:40:29 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,27 @@ t_list	*ft_get_smallest_node(t_list **stack)
 		node = node->next;
 	}
 	return (smallest_node);
+}
+
+t_list	*ft_get_biggest_node(t_list **stack)
+{
+	t_list		*node;
+	t_list		*biggest_node;
+	int			nbr;
+
+	nbr = (*stack)->nbr;
+	biggest_node = *stack;
+	node = (*stack)->next;
+	while (node)
+	{
+		if (node->nbr > nbr)
+		{
+			nbr = node->nbr;
+			biggest_node = node;
+		}
+		node = node->next;
+	}
+	return (biggest_node);
 }
 
 unsigned int	ft_update_stack_index(t_list **stack)
@@ -74,4 +95,23 @@ void	ft_move_to_top(t_list **stack_a, t_list **stack_b, t_list *node, char c)
 				ft_reverse_rotate(stack_a, stack_b, RRB);
 		}
 	}
+}
+
+bool	ft_is_sorted(t_list *stack_a)
+{
+	t_list	*i;
+
+	i = stack_a->next;
+	while (i)
+	{
+		if (i->nbr < i->previous->nbr)
+			return (false);
+		if (i->next && i->nbr > i->next->nbr)
+			return (false);
+		if (i->next && i->next->next)
+			i = i->next->next;
+		else
+			break ;
+	}
+	return (true);
 }

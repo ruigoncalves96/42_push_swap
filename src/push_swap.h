@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:57 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:32:18 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:38:55 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,15 @@ void			ft_push(t_list **stack_a, t_list **stack_b, int move);
 void			ft_rotate(t_list **stack_a, t_list **stack_b, int move);
 void			ft_reverse_rotate(t_list **stack_a, t_list **stack_b, int move);
 
-//	CHECK_IS_SORTED
-bool			ft_is_sorted(t_list *stack_a);
-
 //	ALGORITHM_UTILS
 t_list			*ft_get_smallest_node(t_list **stack);
+t_list			*ft_get_biggest_node(t_list **stack);
 unsigned int	ft_update_stack_index(t_list **stack);
 void			ft_move_to_top(t_list **stack_a, t_list **stack_b,
 					t_list *node, char c);
+bool			ft_is_sorted(t_list *stack_a);
 
 void			ft_algorithm(t_list **stack_a, t_list **stack_b);
-
 void			ft_convert_and_parse(char **arg, t_list **stack_a);
 
 #endif
