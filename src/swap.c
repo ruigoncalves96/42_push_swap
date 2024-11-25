@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:52:42 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/14 13:13:09 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:23:26 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 static void	ft_s(t_list **stack)
 {

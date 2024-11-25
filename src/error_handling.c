@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:27:16 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/11 17:50:44 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:12:25 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_error_exit(void)
 {

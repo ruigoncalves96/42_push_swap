@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:23:26 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/09 19:25:57 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/11/25 17:05:08 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	long	value;
-	int	i;
-	int	pos_neg;
+	int		i;
+	int		pos_neg;
 
 	if (!str)
 		return (0);

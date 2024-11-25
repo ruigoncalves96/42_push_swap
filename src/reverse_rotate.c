@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:54:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/14 13:13:50 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:23:13 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 static void	ft_rr(t_list **stack)
 {
@@ -43,5 +43,4 @@ void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, int move)
 		ft_rr(stack_b);
 		ft_putstr_fd("rrr\n", 1);
 	}
-
 }

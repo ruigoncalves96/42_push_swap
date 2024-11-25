@@ -6,12 +6,12 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:30:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/22 17:40:49 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:21:59 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
-
+#include "push_swap.h"
+/*
 void	ft_print_stack(t_list *stack)
 {
 	t_list	*i;
@@ -26,7 +26,7 @@ void	ft_print_stack(t_list *stack)
 		ft_printf("traget->nbr %d\n\n", i->target->nbr);
 		i = i->next;
 	}
-}
+}*/
 
 int	main(int argc, char *argv[])
 {
@@ -37,14 +37,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	stack_a = NULL;
 	stack_b = NULL;
-	//	CHECK FT_SPLIT if works well
 	ft_convert_and_parse(argv + 1, &stack_a);
-//	ft_print_stack(stack_a);
 	ft_algorithm(&stack_a, &stack_b);
-//	ft_printf("UPDATE A\n");
-//	ft_print_stack(stack_a);
-//	ft_printf("UPDATE B\n");
-//	ft_print_stack(stack_b);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);

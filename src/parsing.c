@@ -6,16 +6,16 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 14:37:24 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/11 17:51:13 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:07:11 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 static long	ft_push_atoi(char **str)
 {
 	long	value;
-	int	pos_neg;
+	int		pos_neg;
 
 	if (!str)
 		return (0);
@@ -67,8 +67,8 @@ static bool	ft_check_content(char *str)
 	while (str[i])
 	{
 		if ((str[i] >= 48 && str[i] <= 57) || str[i] == ' ' || str[i] == '\t'
-				|| str[i] == '\f' || str[i] == '\r' || str[i] == '\n'
-				|| str[i] == '\v')
+			|| str[i] == '\f' || str[i] == '\r' || str[i] == '\n'
+			|| str[i] == '\v')
 			i++;
 		else if (str[i] == '+' || str[i] == '-')
 		{
@@ -90,7 +90,7 @@ void	ft_convert_and_parse(char **arg, t_list **stack_a)
 	while (*arg)
 	{
 		if (ft_check_content(*arg) == false)
-				ft_error_free_exit(stack_a);
+			ft_error_free_exit(stack_a);
 		while (**arg)
 		{
 			nbr = ft_push_atoi(arg);

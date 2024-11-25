@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:41:09 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/14 12:18:09 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:22:17 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 bool	ft_is_sorted(t_list *stack_a)
 {

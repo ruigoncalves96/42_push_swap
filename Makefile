@@ -16,7 +16,7 @@ SRC = push_swap.c \
       parsing.c \
       swap.c push.c rotate.c reverse_rotate.c \
       check_sorted.c \
-      algorithm.c \
+      algorithm.c algorithm_utils.c\
       error_handling.c
 
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))

@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:53:12 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/22 16:29:20 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:12:45 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 static bool	ft_p(t_list **to_stack, t_list **from_stack)
 {
