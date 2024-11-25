@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:56:06 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:00:14 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,24 @@ void	ft_algorithm(t_list **stack_a, t_list **stack_b)
 	unsigned int	stack_b_len;
 
 	node = NULL;
-	stack_a_len = 0;
-	stack_b_len = 0;
 	while ((*stack_a)->next->next)
-		ft_push(stack_a, stack_b, PB);
+	{
+		if (ft_is_sorted(*stack_a) == false)
+			ft_push(stack_a, stack_b, PB);
+		else
+			break;
+	}
+	stack_a_len = ft_update_stack_index(stack_a);
+	stack_b_len = ft_update_stack_index(stack_b);
 	while (*stack_b)
 	{
-		stack_a_len = ft_update_stack_index(stack_a);
-		stack_b_len = ft_update_stack_index(stack_b);
 		node = ft_find_cheapest_move(stack_a, stack_b, stack_a_len,
 				stack_b_len);
 		ft_move_to_top(stack_a, stack_b, node, 'B');
 		ft_move_to_top(stack_a, stack_b, node->target, 'A');
 		ft_push(stack_a, stack_b, PA);
+		stack_a_len = ft_update_stack_index(stack_a);
+		stack_b_len = ft_update_stack_index(stack_b);
 	}
-	ft_update_stack_index(stack_a);
 	ft_move_to_top(stack_a, stack_b, ft_get_smallest_node(stack_a), 'A');
 }
