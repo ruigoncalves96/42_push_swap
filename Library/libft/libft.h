@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:34:25 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:33:19 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:30:45 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int					nbr;
+	unsigned int		lis;
 	unsigned int		index;
 	unsigned int		move_cost;
 	bool				before_meridian;

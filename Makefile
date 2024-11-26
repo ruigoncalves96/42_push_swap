@@ -15,7 +15,7 @@ OBJ_PATH = $(SRC_PATH)/obj
 SRC = push_swap.c \
       parsing.c \
       swap.c push.c rotate.c reverse_rotate.c \
-      algorithm.c algorithm_utils.c\
+      algorithm.c algorithm_utils.c lis.c\
       error_handling.c
 
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))

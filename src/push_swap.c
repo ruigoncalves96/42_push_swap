@@ -6,12 +6,12 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:30:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 18:41:01 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:34:04 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
+
 void	ft_print_stack(t_list *stack)
 {
 	t_list	*i;
@@ -20,13 +20,14 @@ void	ft_print_stack(t_list *stack)
 	while (i)
 	{
 		ft_printf("nbr = %d\n", i->nbr);
+		ft_printf("lis = %d\n", i->lis);
 		ft_printf("index %u\n", i->index);
 		ft_printf("move_cost %u\n", i->move_cost);
 		ft_printf("meridian %d\n", i->before_meridian);
 		ft_printf("traget->nbr %d\n\n", i->target->nbr);
 		i = i->next;
 	}
-}*/
+}
 static void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*node;

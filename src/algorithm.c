@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 19:00:14 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:22:38 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,31 +69,53 @@ static t_list	*ft_find_cheapest_move(t_list **stack_a, t_list **stack_b,
 	return (cheapest_node);
 }
 
+static void	ft_optimize_stack_a(t_list **stack_a, t_list **stack_b)
+{
+	unsigned int	size;
+	int	*lis;
+	int	i;
+
+	size = ft_lstsize(*stack_a);
+	lis = ft_lis(stack_a);
+	i = 0;
+	while (size)
+	{
+		if ((*stack_a)->nbr != lis[i])
+			ft_push(stack_a, stack_b, PB);
+		else
+		{
+			if (ft_is_sorted(*stack_a) == true)
+			{
+				free(lis);
+				break;
+
+			}
+			ft_rotate(stack_a, stack_b, RA);
+			i++;
+		}
+		size--;
+	}
+	free(lis);
+}
+
 void	ft_algorithm(t_list **stack_a, t_list **stack_b)
 {
 	t_list			*node;
-	unsigned int	stack_a_len;
-	unsigned int	stack_b_len;
+	unsigned int	a_len;
+	unsigned int	b_len;
 
 	node = NULL;
-	while ((*stack_a)->next->next)
-	{
-		if (ft_is_sorted(*stack_a) == false)
-			ft_push(stack_a, stack_b, PB);
-		else
-			break;
-	}
-	stack_a_len = ft_update_stack_index(stack_a);
-	stack_b_len = ft_update_stack_index(stack_b);
+	ft_optimize_stack_a(stack_a, stack_b);
+	a_len = ft_update_stack_index(stack_a);
+	b_len = ft_update_stack_index(stack_b);
 	while (*stack_b)
 	{
-		node = ft_find_cheapest_move(stack_a, stack_b, stack_a_len,
-				stack_b_len);
+		node = ft_find_cheapest_move(stack_a, stack_b, a_len, b_len);
 		ft_move_to_top(stack_a, stack_b, node, 'B');
 		ft_move_to_top(stack_a, stack_b, node->target, 'A');
 		ft_push(stack_a, stack_b, PA);
-		stack_a_len = ft_update_stack_index(stack_a);
-		stack_b_len = ft_update_stack_index(stack_b);
+		a_len = ft_update_stack_index(stack_a);
+		b_len = ft_update_stack_index(stack_b);
 	}
 	ft_move_to_top(stack_a, stack_b, ft_get_smallest_node(stack_a), 'A');
 }
