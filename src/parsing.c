@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 14:37:24 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:07:11 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:27:16 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static bool	ft_check_content(char *str)
 			i++;
 		else if (str[i] == '+' || str[i] == '-')
 		{
-			if (str[i + 1] == '+' || str[i + 1] == '-')
+			if (str[i + 1] == '+' || str[i + 1] == '-' ||
+					str[i + 1] < 48 || str[i + 1] > 57)
 				return (false);
 			i++;
 		}
@@ -89,6 +90,8 @@ void	ft_convert_and_parse(char **arg, t_list **stack_a)
 	nbr = 0;
 	while (*arg)
 	{
+		if (**arg == '\0')
+			ft_error_free_exit(stack_a);
 		if (ft_check_content(*arg) == false)
 			ft_error_free_exit(stack_a);
 		while (**arg)

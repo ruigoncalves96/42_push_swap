@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:54:38 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:23:13 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:29:56 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, int move)
 		ft_rr(stack_b);
 		ft_putstr_fd("rrr\n", 1);
 	}
+	ft_update_stack_index(stack_a);
+	ft_update_stack_index(stack_b);
 }

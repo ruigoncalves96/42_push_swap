@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:53:12 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 17:12:45 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:27:52 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ void	ft_push(t_list **stack_a, t_list **stack_b, int move)
 		if (ft_p(stack_b, stack_a) == true)
 			ft_putstr_fd("pb\n", 1);
 	}
+	ft_update_stack_index(stack_a);
+	ft_update_stack_index(stack_b);
 }

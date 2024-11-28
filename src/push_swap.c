@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:30:30 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/26 17:34:04 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:59:40 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,18 @@ void	ft_print_stack(t_list *stack)
 		i = i->next;
 	}
 }
+
 static void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*node;
 	int		nbr_len;
 
-	node = NULL;
 	nbr_len = ft_lstsize(*stack_a);
 	if (nbr_len == 2)
 		ft_swap(stack_a, stack_b, SA);
 	else if (nbr_len == 3)
-	{
-		node = ft_get_biggest_node(stack_a);
-		ft_update_stack_index(stack_a);
-		if (node->index == 1)
-			ft_reverse_rotate(stack_a, stack_b, RRA);
-		else if (node->index == 0)
-			ft_rotate(stack_a, stack_b, RA);
-		if ((*stack_a)->nbr > (*stack_a)->next->nbr)
-			ft_swap(stack_a, stack_b, SA);
-	}
+		ft_sort_3(stack_a, stack_b);
+	else if (nbr_len == 4 || nbr_len == 5)
+		ft_sort_4_5(stack_a, stack_b);
 	else
 		ft_algorithm(stack_a, stack_b);
 }
@@ -57,7 +49,7 @@ int	main(int argc, char *argv[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	if (argc < 2)
+	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	stack_a = NULL;
 	stack_b = NULL;

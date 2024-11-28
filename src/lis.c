@@ -6,11 +6,32 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/26 18:24:24 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:27:47 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_list	*ft_get_biggest_lis(t_list **stack)
+{
+	t_list	*temp;
+	t_list	*biggest_lis;
+	unsigned int	lis;
+
+	temp = *stack;
+	biggest_lis = NULL;
+	lis = 0;
+	while (temp)
+	{
+		if (temp->lis > lis)
+		{
+			lis = temp->lis;
+			biggest_lis = temp;
+		}
+		temp = temp->next;
+	}
+	return (biggest_lis);
+}
 
 static void	ft_calculate_lis(t_list **stack)
 {
@@ -39,27 +60,6 @@ static void	ft_calculate_lis(t_list **stack)
 			i = i->next;
 		}
 	}
-}
-
-static t_list	*ft_get_biggest_lis(t_list **stack)
-{
-	t_list	*temp;
-	t_list	*biggest_lis;
-	unsigned int	lis;
-
-	temp = *stack;
-	biggest_lis = NULL;
-	lis = 0;
-	while (temp)
-	{
-		if (temp->lis > lis)
-		{
-			lis = temp->lis;
-			biggest_lis = temp;
-		}
-		temp = temp->next;
-	}
-	return (biggest_lis);
 }
 
 static int	*ft_get_lis_array(t_list *lis_node)

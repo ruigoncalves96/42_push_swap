@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:57 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/26 17:39:02 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/28 18:20:11 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,18 @@ void			ft_move_to_top(t_list **stack_a, t_list **stack_b,
 					t_list *node, char c);
 bool			ft_is_sorted(t_list *stack_a);
 
-//	LIS
-int	*ft_lis(t_list **stack);
+//	MOVE_ALGORITHM
+void			ft_move_algorithm(t_list **stack_a, t_list **stack_b);
 
+//	LIS
+t_list			*ft_get_biggest_lis(t_list **stack);
+int			*ft_lis(t_list **stack);
+
+//	ALGORITHM
+void			ft_sort_3(t_list **stack_a, t_list **stack_b);
+void			ft_sort_4_5(t_list **stack_a, t_list **stack_b);
 void			ft_algorithm(t_list **stack_a, t_list **stack_b);
+
 void			ft_convert_and_parse(char **arg, t_list **stack_a);
 
 #endif
