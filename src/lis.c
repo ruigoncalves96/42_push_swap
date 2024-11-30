@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/28 16:27:47 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/29 23:57:55 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*ft_get_biggest_lis(t_list **stack)
 {
-	t_list	*temp;
-	t_list	*biggest_lis;
+	t_list			*temp;
+	t_list			*biggest_lis;
 	unsigned int	lis;
 
 	temp = *stack;
@@ -62,35 +62,30 @@ static void	ft_calculate_lis(t_list **stack)
 	}
 }
 
-static int	*ft_get_lis_array(t_list *lis_node)
+static void	ft_get_lis_array(t_list *lis_node)
 {
-	int		*array;
 	unsigned int	size;
 
 	size = lis_node->lis;
-	array = ft_calloc(size + 1, sizeof(int));
-	if (!array)
-		return (NULL);
 	while (size > 0)
 	{
 		if (lis_node->lis == size)
 		{
-			array[size - 1] = lis_node->nbr;
+			lis_node->is_lis = true;
 			size--;
 		}
+		else
+			lis_node->is_lis = false;
 		lis_node = lis_node->previous;
 	}
-	return (array);
 }
 
-int	*ft_lis(t_list **stack)
+void	ft_lis(t_list **stack, t_stack_info *stack_info)
 {
 	t_list	*lis_node;
-	int	*lis;
 
-	lis = NULL;
 	ft_calculate_lis(stack);
 	lis_node = ft_get_biggest_lis(stack);
-	lis = ft_get_lis_array(lis_node);
-	return (lis);
+	stack_info->lis_size = lis_node->lis;
+	ft_get_lis_array(lis_node);
 }

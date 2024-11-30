@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:34:25 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/26 17:30:45 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/29 23:10:35 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 	unsigned int		index;
 	unsigned int		move_cost;
 	bool				before_meridian;
+	bool				is_lis;
 	struct s_list		*target;
 	struct s_list		*previous;
 	struct s_list		*next;

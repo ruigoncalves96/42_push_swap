@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:53:12 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/28 17:27:52 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/29 23:56:46 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static bool	ft_p(t_list **to_stack, t_list **from_stack)
 	return (true);
 }
 
-void	ft_push(t_list **stack_a, t_list **stack_b, int move)
+void	ft_push(t_list **stack_a, t_list **stack_b,
+		t_stack_info *stack_info, int move)
 {
 	if (move == PA)
 	{
@@ -39,6 +40,6 @@ void	ft_push(t_list **stack_a, t_list **stack_b, int move)
 		if (ft_p(stack_b, stack_a) == true)
 			ft_putstr_fd("pb\n", 1);
 	}
-	ft_update_stack_index(stack_a);
-	ft_update_stack_index(stack_b);
+	stack_info->b_len = ft_update_stack_index(stack_b);
+	stack_info->a_len = ft_update_stack_index(stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:28:22 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/25 18:40:29 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/29 23:57:09 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,24 @@ unsigned int	ft_update_stack_index(t_list **stack)
 	return (len);
 }
 
-void	ft_move_to_top(t_list **stack_a, t_list **stack_b, t_list *node, char c)
+void	ft_move_to_top(t_list **stack, t_list *node,
+		t_stack_info *stack_info, char c)
 {
 	while (node->previous)
 	{
 		if (node->before_meridian == true)
 		{
 			if (c == 'A')
-				ft_rotate(stack_a, stack_b, RA);
+				ft_rotate(stack, NULL, stack_info, RA);
 			else if (c == 'B')
-				ft_rotate(stack_a, stack_b, RB);
+				ft_rotate(NULL, stack, stack_info, RB);
 		}
 		else
 		{
 			if (c == 'A')
-				ft_reverse_rotate(stack_a, stack_b, RRA);
+				ft_reverse_rotate(stack, NULL, stack_info, RRA);
 			else if (c == 'B')
-				ft_reverse_rotate(stack_a, stack_b, RRB);
+				ft_reverse_rotate(NULL, stack, stack_info, RRB);
 		}
 	}
 }
