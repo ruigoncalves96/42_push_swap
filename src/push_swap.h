@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:57 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/29 23:55:32 by randrade         ###   ########.fr       */
+/*   Updated: 2024/11/30 01:11:51 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../Library/libft/libft.h"
 # include "../Library/ft_printf/ft_printf.h"
+# include "../Library/get_next_line/get_next_line.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>

@@ -6,11 +6,11 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:52:42 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/30 01:42:17 by randrade         ###   ########.fr       */
+/*   Updated: 2024/12/01 00:38:57 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
 static void	ft_s(t_list **stack)
 {
@@ -32,24 +32,14 @@ static void	ft_s(t_list **stack)
 void	ft_swap(t_list **stack_a, t_list **stack_b,
 		t_stack_info *stack_info, int move)
 {
+	(void)stack_info;
 	if (move == SA)
-	{
 		ft_s(stack_a);
-		ft_putstr_fd("sa\n", 1);
-		stack_info->a_len = ft_update_stack_index(stack_a);
-	}
 	else if (move == SB)
-	{
 		ft_s(stack_b);
-		ft_putstr_fd("sb\n", 1);
-		stack_info->b_len = ft_update_stack_index(stack_b);
-	}
 	else if (move == SS)
 	{
 		ft_s(stack_a);
 		ft_s(stack_b);
-		ft_putstr_fd("ss\n", 1);
-		stack_info->a_len = ft_update_stack_index(stack_a);
-		stack_info->b_len = ft_update_stack_index(stack_b);
 	}
 }
