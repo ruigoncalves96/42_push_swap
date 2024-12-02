@@ -16,7 +16,7 @@ SRC_BONUS_PATH = bonus
 OBJ_BONUS_PATH = $(SRC_BONUS_PATH)/obj
 
 SRC = push_swap.c \
-      parsing.c \
+      parsing.c push_atoi.c \
       swap.c push.c rotate.c reverse_rotate.c \
       algorithm.c algorithm_utils.c optimize_stacks.c move_algorithm.c lis.c\
       error_handling.c
@@ -24,10 +24,10 @@ SRC = push_swap.c \
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))
 
 BONUS = checker.c \
-	parsing.c \
+      	parsing.c push_atoi.c \
 	swap.c push.c rotate.c reverse_rotate.c \
 	algorithm_utils.c \
-	error_handling.c
+      	error_handling.c
 
 OBJ_BONUS = $(addprefix $(OBJ_BONUS_PATH)/, $(BONUS:.c=.o))
 

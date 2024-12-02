@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:57 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/30 01:11:51 by randrade         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:38:29 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ typedef struct s_stack_info
 }		t_stack_info;
 
 //	ERROR_HANDLING
+void			ft_free_array(char **array);
 void			ft_error_exit(void);
-void			ft_error_free_exit(t_list **lst);
+void			ft_error_free_exit(char **array, t_list **lst);
 
 //	MOVES	
 void			ft_swap(t_list **stack_a, t_list **stack_b,
@@ -83,6 +84,7 @@ void			ft_sort_4_5(t_list **stack_a, t_list **stack_b,
 void			ft_algorithm(t_list **stack_a, t_list **stack_b,
 					t_stack_info *stack_info);
 
-void			ft_convert_and_parse(char **arg, t_list **stack_a);
+bool			ft_push_atoi(char *str, int *nbr);
+void			ft_parse_and_convert(char **arg, t_list **stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: randrade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 00:34:36 by randrade          #+#    #+#             */
-/*   Updated: 2024/12/01 01:08:44 by randrade         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:13:56 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ int	main(int argc, char *argv[])
 	t_list		*stack_a;
 	t_list		*stack_b;
 
-	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
+	(void)argv;
+	if (argc < 2)
 		return (1);
 	stack_a = NULL;
 	stack_b = NULL;
 	ft_memset(&stack_info, 0, sizeof(t_stack_info));
-	ft_convert_and_parse(argv + 1, &stack_a);
+	ft_parse_and_convert(argv + 1, &stack_a);
+	if (!stack_a)
+		return (1);
 	ft_make_moves(&stack_a, &stack_b, &stack_info);
 	if (ft_is_sorted(stack_a) == true)
 		ft_printf("OK\n");
@@ -75,4 +78,8 @@ int	main(int argc, char *argv[])
 		ft_printf("KO\n");
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
+	return (0);
 }
+
+//CHECK MAKEFILE TO USE SAME FILES
+//SEND NULL MAKE_MOVES STACK_INFO && RM STACK_INFO

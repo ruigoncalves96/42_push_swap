@@ -6,58 +6,11 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 14:37:24 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/29 23:50:16 by randrade         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:59:14 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static long	ft_push_atoi(char **str)
-{
-	long	value;
-	int		pos_neg;
-
-	if (!str)
-		return (0);
-	value = 0;
-	pos_neg = 1;
-	while (**str == ' ' || **str == '\t' || **str == '\f'
-		|| **str == '\r' || **str == '\n' || **str == '\v')
-		(*str)++;
-	if (**str == '+' || **str == '-')
-	{
-		if (**str == '-')
-			pos_neg *= -1;
-		(*str)++;
-	}
-	while (**str >= '0' && **str <= '9')
-	{
-		value = (value * 10) + **str - 48;
-		(*str)++;
-	}
-	value *= pos_neg;
-	return (value);
-}
-
-static bool	ft_check_duplicate(t_list **stack_a)
-{
-	t_list	*i;
-	t_list	*lst;
-
-	lst = *stack_a;
-	while (lst)
-	{
-		i = lst->next;
-		while (i)
-		{
-			if (i->nbr == lst->nbr)
-				return (false);
-			i = i->next;
-		}
-		lst = lst->next;
-	}
-	return (true);
-}
 
 static bool	ft_check_content(char *str)
 {
@@ -83,26 +36,58 @@ static bool	ft_check_content(char *str)
 	return (true);
 }
 
-void	ft_convert_and_parse(char **arg, t_list **stack_a)
+static void	ft_convert_to_stack(char **array, t_list **stack_a)
 {
-	long	nbr;
+	int	nbr;
 
-	nbr = 0;
+	while (*array)
+	{
+		nbr = 0;
+		if (ft_push_atoi(*array, &nbr) == false)
+			ft_error_free_exit(array, stack_a);
+		ft_lstadd_last(stack_a, ft_lstnew(nbr));
+		array++;
+	}
+}
+
+static bool	ft_has_duplicates(t_list **stack_a)
+{
+	t_list	*i;
+	t_list	*lst;
+
+	lst = *stack_a;
+	while (lst)
+	{
+		i = lst->next;
+		while (i)
+		{
+			if (i->nbr == lst->nbr)
+				return (true);
+			i = i->next;
+		}
+		lst = lst->next;
+	}
+	return (false);
+}
+
+void	ft_parse_and_convert(char **arg, t_list **stack_a)
+{
+	char	**array;
+
 	while (*arg)
 	{
-		if (**arg == '\0')
-			ft_error_free_exit(stack_a);
-		if (ft_check_content(*arg) == false)
-			ft_error_free_exit(stack_a);
-		while (**arg)
+		if (*arg[0] != '\0')
 		{
-			nbr = ft_push_atoi(arg);
-			if (nbr < -2147483648 || nbr > 2147483647)
-				ft_error_free_exit(stack_a);
-			ft_lstadd_last(stack_a, ft_lstnew(nbr));
+			if (ft_check_content(*arg) == false)
+				ft_error_free_exit(NULL, stack_a);
+			array = ft_split(*arg, ' ');
+			if (!array)
+				ft_error_free_exit(NULL, stack_a);
+			ft_convert_to_stack(array, stack_a);
+			ft_free_array(array);
 		}
 		arg++;
 	}
-	if (ft_check_duplicate(stack_a) == false)
-		ft_error_free_exit(stack_a);
+	if (ft_has_duplicates(stack_a) == true)
+		ft_error_free_exit(NULL, stack_a);
 }
