@@ -6,7 +6,7 @@
 /*   By: ruigoncalves <ruigoncalves@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:24:53 by randrade          #+#    #+#             */
-/*   Updated: 2024/11/13 11:57:33 by ruigoncalve      ###   ########.fr       */
+/*   Updated: 2024/12/03 12:30:42 by randrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ t_list	*ft_lstnew(int content)
 	if (lst == NULL)
 		return (NULL);
 	lst->nbr = content;
+	lst->lis = 1;
+	lst->index = 0;
+	lst->move_cost = 0;
+	lst->before_meridian = false;
+	lst->is_lis = false;
+	lst->target = NULL;
 	lst->previous = NULL;
 	lst->next = NULL;
 	return (lst);
